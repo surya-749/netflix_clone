@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surya-Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+ 
+    <style>
+        * {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+        .netflix-slider,.slider {
+            display: flex;
+            overflow-x: scroll;
+            overflow-y: hidden;
+            scroll-behavior: smooth;
+            scrollbar-width: none;
+            gap: 16px;
+        }
+        .netflix-slider::-webkit-scrollbar {
+            display: none;
+
+        }
+        body::-webkit-scrollbar {
+            display: none;
+        }
+        .netflix-card {
+            position: relative;
+            flex-shrink: 0;
+            width: 300px;
+            aspect-ratio: 16 / 9;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .netflix-card-square {
+            position: relative;
+            flex-shrink: 0;
+            width: 240px;
+            aspect-ratio: 1 / 1;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .netflix-card:hover,
+        .netflix-card-square:hover {
+            transform: scale(1.08);
+            box-shadow: 0 8px 24px rgba(255, 0, 0, 0.5);
+        }
+        .netflix-badge {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: #E50914;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: bold;
+            z-index: 10;
+        }
+        .hero-overlay {
+            background: linear-gradient(90deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.5) 50%, transparent 100%);
+        }
+        .netflix-btn {
+            padding: 12px 32px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .netflix-btn-play {
+            background-color: white;
+            color: black;
+        }
+        .netflix-btn-play:hover {
+            background-color: rgba(255, 255, 255, 0.75);
+        }
+        .netflix-btn-info {
+            background-color: rgba(109, 109, 110, 0.7);
+            color: white;
+        }
+        .netflix-btn-info:hover {
+            background-color: rgba(109, 109, 110, 0.4);
+        }
+        #video-preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: #000; /* Background color while video loads */
+    z-index: 9999; /* Keeps it above everything else */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+#loading-video {
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover; /* Ensures video fills the screen without distortion */
+}
+
+    </style>
+
+</head>
+<body class=" bg-black ">
+   
+    <div id="video-preloader">
+    <video autoplay muted playsinline id="loading-video">
+        <source src="net.mp4" type="video/mp4">
+    </video>
+</div>
+
+    
+    <div class="relative bg-[linear-gradient(to_bottom,transparent,black),url('gr.jpg')] bg-cover bg-top bg-no-repeat w-full">
+     
+        <nav class="h-auto relative z-10">
+        <div class="flex justify-left h-full flex-row items-center  ">
+            <div class="flex align-center justify-center">
+                <img src="surya-2.png" alt="" class="h-10 ml-5"></div>
+            <div class="flex align-center justify-center text-white px-10" >
+                
+                <ul class="flex gap-5">
+                    <li><a href="">Home</a></li>
+                    <li><a href="">Projects</a></li>
+                    <li><a href="">About me</a></li>
+                </ul>   
+            </div>
+        </div>
+        </nav>
+        
+        <!-- Hero Content -->
+        <div class="hero-overlay absolute inset-0 flex flex-col justify-center z-5 "></div>
+        <div class="relative z-10 text-white px-12 pt-32 pb-16 max-w-3xl min-h-[400px] flex flex-col justify-center">
+            <h1 class="text-4xl font-black  mb-4 leading-tight drop-shadow-2xl">Surya-Web developer</h1>
+            
+            <p class="text-lg max-w-lg leading-relaxed text-gray-200 mb-0 drop-shadow-lg line-clamp-3">I am a 1st year college student currently studying at vit chennai</p>
+            
+            <div class="flex gap-4">
+            <button class="netflix-btn netflix-btn-play">▶ Resume</button>
+            <button class="netflix-btn netflix-btn-info">ⓘ About me</button>
+            </div>
+        </div>
+    </div>
+        
+        <!-- Netflix-style Slider Row 1 -->
+         
+        <div class="relative z-0 bg-black pt-12">
+            <h2 class="text-white text-2xl font-bold mb-6 px-4 flex flex-row">New on Netflix</h2>
+            <div class="slider">
+            
+            </div>
+            </div>
+        </div>
+
+        <!-- Netflix-style Slider Row 2 -->
+        <div class="relative z-0 bg-black">
+            <h2 class="text-white text-2xl font-bold mb-6 px-4">Trending Now</h2>
+            <div class="netflix-slider slider2 px-4 pb-4">
+                              
+            </div>
+        </div>
+
+        <!-- Netflix-style Slider Row 3 -->
+        <div class="relative z-0 bg-black pb-12">
+            <h2 class="text-white text-2xl font-bold mb-6 px-4">My Projects</h2>
+            <div class="netflix-slider slider3 px-4 pb-4">
+               
+                
+            </div>
+        </div>
+        
+    </div>
+</body>
+   <script src="main.js"></script>
+</html>
