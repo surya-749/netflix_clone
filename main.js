@@ -45,7 +45,7 @@ let st="";
 let imgNames2=["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSf1DK32xKMQzqSl8wnY1BLVu_gdwsRYzVSNM6A03r6c-fEwrif8raKzkFRuerw1KHdDICvOw&s=10","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaClGcOnLmYxXebg-Rb_FZw--SyVZCWjEkXQ&s","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWTAA0uZ0azhuIXdzuCF9eR1l-EJ0iAdPzFw&s","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQsU5xbn_7xduknCu2CzOwGOVVCi8zTYf6xg&s"];
 let M=10;
 for(let i=0;i<M;i++){
-    st+=` <div class="netflix-card-square" style="background: linear-gradient(135deg, #1e3c72, #2a5298);onclick=${}>
+    st+=` <div class="netflix-card-square" style="background: linear-gradient(135deg, #1e3c72, #2a5298);">
                     <img src="${imgNames2[i%(imgNames2.length)]}.jpg" class="w-full h-full object-cover object-bottom" alt="Show 1">
                     ${i<3?`<div class="netflix-badge">New</div>`:''}
                 </div>`
@@ -59,8 +59,7 @@ let J=10;
 for(let i=0;i<J;i++){
     stn+=` <div class="netflix-card-square" style="background: linear-gradient(135deg, #1e3c72, #2a5298);">
                     <img src="${imgNames3[i%(imgNames3.length)]}.jpg" class="w-full h-full object-cover object-bottom" alt="Show 1">
-                    
-                </div>`
+            </div>`
 }
 s3.innerHTML+=stn;
 
