@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
- 
+    
     <style>
         * {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -94,10 +94,37 @@
         .netflix-btn-info:hover {
             background-color: rgba(109, 109, 110, 0.4);
         }
+        #video-preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: #000; /* Background color while video loads */
+    z-index: 9999; /* Keeps it above everything else */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+#loading-video {
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover; /* Ensures video fills the screen without distortion */
+}
+
     </style>
 
 </head>
 <body class=" bg-black ">
+   
+    <div id="video-preloader">
+    <video autoplay muted playsinline id="loading-video">
+        <source src="net.mp4" type="video/mp4">
+    </video>
+</div>
+
     
     <div class="relative bg-[linear-gradient(to_bottom,transparent,black),url('gr.jpg')] bg-cover bg-top bg-no-repeat w-full">
      
@@ -118,7 +145,7 @@
         
         <!-- Hero Content -->
         <div class="hero-overlay absolute inset-0 flex flex-col justify-center z-5 "></div>
-        <div class="relative z-10 text-white px-12 pt-20 max-w-3xl h-80 flex flex-col justify-center">
+        <div class="relative z-10 text-white px-12 pt-32 pb-16 max-w-3xl min-h-[400px] flex flex-col justify-center">
             <h1 class="text-4xl font-black  mb-4 leading-tight drop-shadow-2xl">Surya-Web developer</h1>
             
             <p class="text-lg max-w-lg leading-relaxed text-gray-200 mb-0 drop-shadow-lg line-clamp-3">I am a 1st year college student currently studying at vit chennai</p>
@@ -159,5 +186,5 @@
         
     </div>
 </body>
-   <script src="main.js"></script>
+<script src="main.js"></script>
 </html>
